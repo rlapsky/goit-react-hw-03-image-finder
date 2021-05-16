@@ -4,9 +4,7 @@ import Loader from "react-loader-spinner";
 import ImageGalleryList from "./imageGalleryList/ImageGalleryList";
 import Modal from "./modal/Modal";
 import Searchbar from "./searchbar/Searchbar";
-
 const KEY = "21148733-fe4ceb41e783008baa1bd0520";
-
 class ImageGallery extends Component {
   state = {
     images: [],
@@ -17,7 +15,6 @@ class ImageGallery extends Component {
     loader: false,
     error: null,
   };
-
   componentDidUpdate(prevProps, prevState) {
     if (this.state.query !== prevState.query && this.state.query !== "") {
       this.axiosImage();
@@ -28,7 +25,6 @@ class ImageGallery extends Component {
       this.axiosImage();
     }
   }
-
   axiosImage = async () => {
     try {
       const { data } = await axios.get(
@@ -42,7 +38,6 @@ class ImageGallery extends Component {
       this.setState((prevState) => ({
         loader: false,
       }));
-
       if (this.state.page > 1) {
         window.scrollTo({
           top: document.documentElement.scrollHeight,
@@ -51,16 +46,13 @@ class ImageGallery extends Component {
       }
     }
   };
-
   onFormSubmit = (query) => {
     this.setState({ query: "", page: 1, images: [] });
     this.setState({ query: query, page: 1, images: [] });
   };
-
   showMore = () => {
     this.setState((prevState) => ({ page: prevState.page + 1 }));
   };
-
   largeImgHendler = (e) => {
     const largeImage = e.target.dataset.source;
     this.setState({ largeImageURL: largeImage });
@@ -69,12 +61,10 @@ class ImageGallery extends Component {
   openCloseModal = () => {
     this.setState((prevSt) => ({ shoModal: !prevSt.shoModal }));
   };
-
   render() {
     return (
       <>
         <Searchbar onSubmit={this.onFormSubmit} />
-
         {this.state.loader ? (
           <Loader />
         ) : (
@@ -88,7 +78,6 @@ class ImageGallery extends Component {
             Load more
           </button>
         )}
-
         <Modal
           open={this.state.shoModal}
           onClose={this.openCloseModal}
@@ -98,5 +87,4 @@ class ImageGallery extends Component {
     );
   }
 }
-
 export default ImageGallery;

@@ -1,6 +1,5 @@
 import React from "react";
 import ImageGalleryItem from "./imageGalleryItem/ImageGalleryItem";
-
 const ImageGalleryList = ({ images, largeImgHendler }) => {
   return (
     <>

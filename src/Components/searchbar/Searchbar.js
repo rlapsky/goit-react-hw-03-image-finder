@@ -1,20 +1,16 @@
 import React, { Component } from "react";
-
 class Searchbar extends Component {
   state = {
     searchQuery: "",
   };
-
   onHeandlerSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit(this.state.searchQuery);
   };
-
   onHeandlerChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
   render() {
     return (
       <header className="Searchbar">
@@ -35,5 +31,4 @@ class Searchbar extends Component {
     );
   }
 }
-
 export default Searchbar;

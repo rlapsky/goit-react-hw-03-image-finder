@@ -2,7 +2,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import styled from "styled-components";
 import React from "react";
 import Loader from "react-loader-spinner";
-
 export default class App extends React.Component {
   render() {
     return (
